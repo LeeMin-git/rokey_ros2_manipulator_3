@@ -13,10 +13,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        #(os.path.join('share',package_name,'launch'),glob('launch/*.launch.py')),
-        #(os.path.join('share',package_name,'urdf'),glob('urdf/*.xacro'))
-        ('shara/'+ package_name+'/launch',['launch/robot_1.launch.py']),
-        ('share/'+package_name+'/urdf',['urdf/robot_1.xacro'])
+        (os.path.join('share',package_name,'launch'),glob('launch/*.launch.py')),
+        (os.path.join('share',package_name,'urdf'),glob('urdf/*.xacro'))
+        #('shara/'+ package_name+'/launch',['launch/robot_1.launch.py']),
+        #('share/'+package_name+'/urdf',['urdf/robot_1.xacro'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
