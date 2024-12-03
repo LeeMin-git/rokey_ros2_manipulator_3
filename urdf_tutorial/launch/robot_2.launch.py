@@ -14,7 +14,7 @@ def generate_launch_description():
     pkg_path=os.path.join(get_package_share_directory('description'))
     xacro_file = os.path.join(pkg_path,'urdf','robot_2.xacro')
     robot_descriprion = xacro.process_file(xacro_file)
-    params = {'robot_description': robot_descriprion.toxml(), 'use_sim_time':use_sim_time}
+    params = {'ignore_timestamp': False,'robot_description': robot_descriprion.toxml(), 'use_sim_time':use_sim_time}
     rviz_config_file = PathJoinSubstitution([
             FindPackageShare('description'),
             'rviz',
@@ -39,21 +39,10 @@ def generate_launch_description():
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
-            parameters=[{
-                'ignore_timestamp': False,
-                'robot_description':
-                    Command([
-                        'xacro ',
-                        PathJoinSubstitution([
-                            FindPackageShare('description'),
-                            'urdf',
-                            'robot_2.xacro',
-                        ]),
-                    ]),
-            }]),
+            parameters=[params]),
         Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        name='joint_state_publisher',
-        output='screen')
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
+            name='joint_state_publisher',
+            output='screen')
     ])
