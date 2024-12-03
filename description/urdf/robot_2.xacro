@@ -2,6 +2,9 @@
 <robot xmlns:xacro='https://ros.org/wiki/xacro' name='urdf_test'>
     <xacro:property name="wheel_diameter" value="0.068"/>
     <xacro:property name="wheel_speration" value="0.180"/>
+    <material name="white">
+        <color rgba="1 1 1 1" />
+    </material>
 
     <link name = 'base_link'/>
 
@@ -13,27 +16,51 @@
 
     <link name="robot_body">
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://description/meshes/base.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://description/meshes/robot_b_body.stl" scale="0.001 0.001 0.001"/>
             </geometry>
+            <material name="white"/>
         </visual>
     </link>
+    <!-- <gazebo reference='robot_body'>
+        <material>Gazebo/White</material>
+    </gazebo> -->
 
     <joint name="r_wheel_joint" type="continuous">
         <parent link='robot_body'/>
         <child link='r_wheel'/>
-        <origin xyz="0.129 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <axis xyz="0 1 0"/>
     </joint>
 
     <link name="r_wheel">
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://description/meshes/wheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://description/meshes/robot_b_r_wheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
     </link>
+    <!-- <gazebo reference='r_wheel'>
+        <material>Gazebo/Black</material>
+    </gazebo> -->
+
+    <joint name="l_wheel_joint" type="continuous">
+        <parent link="robot_body"/>
+        <child link="l_wheel"/>        
+    </joint>
+
+    <link name="l_wheel">
+        <visual>
+            <origin xyz="0 0 0 " rpy=" 0 0 0"/>
+                <geometry>
+                    <mesh filename="package://description/meshes/robot_b_l_wheel.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+        </visual>
+    </link>
+    <!-- <gazebo reference='l_wheel'>
+        <material>Gazebo/Black</material>
+    </gazebo> -->
 
 </robot>
