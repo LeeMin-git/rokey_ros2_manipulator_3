@@ -1,0 +1,19 @@
+<?xmal version="1.0"?>
+<robot xmls:xacro='https://ros.org/wikiu/xacro' name='urdf_test'>
+
+    <link name = 'base_link'>
+    </link>
+
+    <joint name = 'body_joint' type='fixed'>
+        <parent link='base_link'/>
+        <child link = 'body'/>
+    </joint>
+
+    <link name = 'body'>
+        <visual>
+            <geometry>
+                <box size = '1 1 1'/>
+            </geometry>
+        </visual>
+    </link>
+</robot>
