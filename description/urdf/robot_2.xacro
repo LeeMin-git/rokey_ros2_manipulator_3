@@ -1,27 +1,39 @@
 <?xmal version="1.0"?>
 <robot xmlns:xacro='https://ros.org/wiki/xacro' name='urdf_test'>
+    <xacro:property name="wheel_diameter" value="0.068"/>
+    <xacro:property name="wheel_speration" value="0.180"/>
 
     <link name = 'base_link'/>
 
     <joint name = 'body_joint' type='fixed'>
         <parent link='base_link'/>
-        <child link = 'test'/>
+        <child link = 'robot_body'/>
+        <origin xyz="0.129 0.0 0.0" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <link name="test">
+    <link name="robot_body">
         <visual>
-            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://description/meshes/aaa.stl" scale="1 1 1"/>
+                <mesh filename="package://description/meshes/base.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
     </link>
 
-    <!--<link name = 'body'>
+    <joint name="r_wheel_joint" type="continuous">
+        <parent link='robot_body'/>
+        <child link='r_wheel'/>
+        <origin xyz="0.129 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="r_wheel">
         <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <box size ='1 1 1'/>
+                <mesh filename="package://description/meshes/wheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
-    </link>-->
+    </link>
+
 </robot>
