@@ -5,8 +5,7 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument, Shutdown
 from launch_ros.actions import Node
 import xacro
-from launch_ros.substitutions import FindPackageShare
-from launch.substitutions import PathJoinSubstitution, Command, LaunchConfiguration
+from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     use_sim_time=LaunchConfiguration('use_sim_time')
@@ -15,12 +14,7 @@ def generate_launch_description():
     xacro_file = os.path.join(pkg_path,'urdf','robot_2.xacro')
     robot_descriprion = xacro.process_file(xacro_file)
     params = {'ignore_timestamp': False,'robot_description': robot_descriprion.toxml(), 'use_sim_time':use_sim_time}
-    rviz_config_file = PathJoinSubstitution([
-            FindPackageShare('description'),
-            'rviz',
-            'robot.rviz'
-        # 안해도 오류는 없는데, 저장된 설정을 가져옵니다. 이런 느낌이다.
-        ])
+    rviz_config_file=os.path.join(pkg_path,'rviz','robot.rviz')
     
     return LaunchDescription([
         DeclareLaunchArgument(
