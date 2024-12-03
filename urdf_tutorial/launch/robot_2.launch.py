@@ -1,11 +1,10 @@
 import os
+import xacro
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument, Shutdown
 from launch_ros.actions import Node
-import xacro
-from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     use_sim_time=LaunchConfiguration('use_sim_time')
