@@ -12,7 +12,7 @@
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://urdf_tutorial/meshes/aaa.stl" scale="1 1 1"/>
+                <mesh filename="package://description/meshes/aaa.stl" scale="1 1 1"/>
             </geometry>
         </visual>
     </link>
