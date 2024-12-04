@@ -11,14 +11,14 @@
     <joint name = 'body_joint' type='fixed'>
         <parent link='base_link'/>
         <child link = 'robot_body'/>
-        <origin xyz="0.129 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
     </joint>
 
     <link name="robot_body">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://description/meshes/robot_b_body.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://description/meshes/robot_b_all.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="white"/>
         </visual>
