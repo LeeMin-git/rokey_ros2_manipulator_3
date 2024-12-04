@@ -36,9 +36,9 @@
 
     <link name="r_wheel">
         <visual>
-            <origin xyz="-0.168 -0.168 0.04" rpy="0 1.57 0"/>
+            <origin xyz="-0.168 -0.168 0.05" rpy="0 1.57 0"/>
             <geometry>
-                <mesh filename="package://description/meshes/robot_b/robot_b_l_wheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://description/meshes/robot_b/robot_b_r_wheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
     </link>
@@ -47,14 +47,15 @@
     </gazebo> -->
 
     <joint name="l_wheel_joint" type="continuous">
-        <origin xyz="0.50 0.168 0.168" rpy="0 0 0"/>
+        <origin xyz="0.50 0.168 0.168" rpy="0 1.57 0"/>
         <parent link="robot_body"/>
-        <child link="l_wheel"/>        
+        <child link="l_wheel"/>  
+        <axis xyz='0 0 1'/>      
     </joint>
 
     <link name="l_wheel">
         <visual>
-            <origin xyz="-0.04 -0.168 -0.168" rpy=" 0 0 0"/>
+            <origin xyz="0.17 -0.16 -0.038" rpy="0 -1.57 0"/>
                 <geometry>
                     <mesh filename="package://description/meshes/robot_b/robot_b_l_wheel.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
