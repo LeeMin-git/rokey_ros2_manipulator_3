@@ -10,7 +10,7 @@ def generate_launch_description():
     use_sim_time=LaunchConfiguration('use_sim_time')
 
     pkg_path=os.path.join(get_package_share_directory('description'))
-    xacro_file = os.path.join(pkg_path,'urdf','robot_1.xacro')
+    xacro_file = os.path.join(pkg_path,'urdf','robot_2.xacro')
     robot_descriprion = xacro.process_file(xacro_file)
     params = {'ignore_timestamp': False,'robot_description': robot_descriprion.toxml(), 'use_sim_time':use_sim_time}
     rviz_config_file=os.path.join(pkg_path,'rviz','robot.rviz')
