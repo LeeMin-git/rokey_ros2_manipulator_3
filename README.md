@@ -3,7 +3,7 @@
 ***
 ### <24-12-04_수_1>
 - robot_2.launch.py 필요없는 코드 정리 (다양하게 이용하고 싶으면 pinklab urdf 생성사이트 참조) 
-
+- code 폴더는 강사님께서 배포해주신 코드임 (urdf,robot,simulation)
 
 ***
 ### <24-12-03_화_2>
