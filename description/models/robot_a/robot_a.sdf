@@ -1,0 +1,72 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name="robot1">
+    <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+
+    <link name='base_link'/>
+
+    <joint name = 'body_joint' type='fixed'>
+        <parent>base_link</parent>
+        <child>robot_body</child>
+        <pose> 0.0 0.0 0.36 0.0 0.0 0.0</pose>
+    </joint>
+
+    <link name="robot_body">
+      <visual name="body_visual">
+        <geometry>
+          <mesh>
+            <uri>model://robot_a_common/meshes/robot_a_body.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh> 
+        </geometry>
+      </visual>
+      <collision name="body_collision">
+      </collision>
+    </link>
+
+    <joint name = 'r_wheel_joint' type='continuous'>
+        <parent>robot_body</parent>
+        <child>r_wheel</child>
+        <pose> 0.35 0.23 -0.23 -1.57 0 0</pose>
+        <axis> 
+            <xyz>0 0 1</xyz>
+        </axis>
+    </joint>
+
+    <link name="r_wheel">
+      <visual name="r_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://robot_a_common/meshes/robot_a_r_whell.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh> 
+        </geometry>
+      </visual>
+      <collision name="r_wheel_visual_collision">
+      </collision>
+    </link>
+
+    <joint name = 'l_wheel_joint' type='continuous'>
+        <parent>base_link</parent>
+        <child>l_wheel</child>
+        <pose> 0.35 0.23 -0.23 -1.57 0.0 0.0</pose>
+        <axis>
+            <xyz>0 0 1</xyz>
+        </axis>
+    </joint>
+
+    <link name="l_wheel">
+      <visual name="l_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://robot_a_common/meshes/robot_a_l_wheel.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh> 
+        </geometry>
+      </visual>
+      <collision name="l_wheel_visual_collision">
+      </collision>
+    </link>
+
+  </model>
+</sdf>
