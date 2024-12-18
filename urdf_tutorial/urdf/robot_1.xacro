@@ -1,19 +1,27 @@
 <?xmal version="1.0"?>
 <robot xmlns:xacro='https://ros.org/wiki/xacro' name='urdf_test'>
 
-    <link name = 'base_link'>
-    </link>
+    <link name = 'base_link'/>
 
     <joint name = 'body_joint' type='fixed'>
         <parent link='base_link'/>
-        <child link = 'body'/>
+        <child link = 'test'/>
     </joint>
 
-    <link name = 'body'>
+    <link name="test">
+        <visual>
+            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://urdf_tutorial/meshes/aaa.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!--<link name = 'body'>
         <visual>
             <geometry>
                 <box size ='1 1 1'/>
             </geometry>
         </visual>
-    </link>
+    </link>-->
 </robot>
